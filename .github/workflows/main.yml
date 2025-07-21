@@ -1,0 +1,36 @@
+name: main
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Format
+        run: dotnet format --no-restore
+
+      - name: Build
+        run: dotnet build --no-restore -c Release
+
+      - name: Test
+        run: dotnet test --no-build --no-restore -v normal -c Release /p:CollectCoverage=true /p:Threshold=100 /p:ThresholdType=branch
+
+      - name: Pack
+        run: dotnet pack --no-build --no-restore -c Release -o .
+
+    #   - name: Publish
+    #     run: dotnet nuget push ClearDomain.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate

@@ -4,6 +4,9 @@
 
 namespace SimplexStandard.Application.Logging
 {
+    /// <summary>
+    /// Defines a single operation inside a request.
+    /// </summary>
     public abstract class ApplicationLog
     {
     }

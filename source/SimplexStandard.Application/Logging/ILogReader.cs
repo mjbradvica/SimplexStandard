@@ -4,6 +4,9 @@
 
 namespace SimplexStandard.Application.Logging
 {
+    /// <summary>
+    /// Interface for reading log results.
+    /// </summary>
     public interface ILogReader
     {
     }

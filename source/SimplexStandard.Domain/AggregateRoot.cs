@@ -28,9 +28,9 @@ namespace SimplexStandard.Domain
         public IEnumerable<INotification> DomainEvents => _domainEvents.AsEnumerable();
 
         /// <summary>
-        ///
+        /// Adds a domain event to the entity.
         /// </summary>
-        /// <param name="domainEvent"></param>
+        /// <param name="domainEvent">An instance of the <see cref="INotification"/> interface.</param>
         public void AppendDomainEvent(INotification domainEvent)
         {
             _domainEvents.Add(domainEvent);

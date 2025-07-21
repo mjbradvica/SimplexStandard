@@ -1,5 +1,7 @@
 <Project>
     <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+        <TargetFramework>net9.0</TargetFramework>
         <EnableNETAnalyzers>True</EnableNETAnalyzers>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
         <ImplicitUsings>enable</ImplicitUsings>

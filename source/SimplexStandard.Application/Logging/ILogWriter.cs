@@ -4,6 +4,9 @@
 
 namespace SimplexStandard.Application.Logging
 {
+    /// <summary>
+    /// Interface for writing log to the persistence method.
+    /// </summary>
     public interface ILogWriter
     {
     }
