@@ -21,6 +21,11 @@ namespace SimplexStandard.Domain
         /// <param name="id">The identifier for the entity.</param>
         protected Entity(Guid id)
         {
+            if (id == Guid.Empty)
+            {
+                throw new ArgumentNullException(nameof(id), "The identifier may not be empty.");
+            }
+
             Id = id;
         }
 

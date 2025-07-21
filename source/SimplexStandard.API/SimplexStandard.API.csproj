@@ -3,4 +3,7 @@
     <PackageReference Include="MediatR" Version="13.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.3.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimplexStandard.Infrastructure\SimplexStandard.Infrastructure.csproj" />
+  </ItemGroup>
 </Project>
