@@ -13,6 +13,17 @@ namespace SimplexStandard.Tests.Domain
     public class EntityTests
     {
         /// <summary>
+        /// Default constructor initializes identifier correctly.
+        /// </summary>
+        [TestMethod]
+        public void EmptyConstructor_OnCall_PassesValidGuid()
+        {
+            var entity = new TestEntity();
+
+            Assert.AreNotEqual(Guid.Empty, entity.Id);
+        }
+
+        /// <summary>
         /// Identifiers passed to the entity are correctly set.
         /// </summary>
         [TestMethod]
@@ -32,6 +43,20 @@ namespace SimplexStandard.Tests.Domain
         public void EmptyGuid_WhenPassed_ThrowsException()
         {
             Assert.Throws<ArgumentNullException>(() => new TestEntity(Guid.Empty));
+        }
+
+        /// <summary>
+        /// Equals using interface compares correctly.
+        /// </summary>
+        [TestMethod]
+        public void Equals_IEntity_SameType_IsCorrect()
+        {
+            var id = Guid.CreateVersion7();
+
+            Entity first = new TestEntity(id);
+            IEntity second = new TestEntity(id);
+
+            Assert.IsTrue(first.Equals(second));
         }
     }
 }
